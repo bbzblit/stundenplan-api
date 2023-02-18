@@ -1,13 +1,13 @@
-package com.example.demo;
+package dev.ynnk.stundenplan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class StundenplanApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(StundenplanApplication.class, args);
 	}
 
 }
