@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(stundenplan-api CXX)
+project(stundenplan_api CXX)
 
 include(CheckIncludeFileCXX)
 

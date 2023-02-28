@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(stundenplan-api_test CXX)
+project(stundenplan_api_test CXX)
 
 add_executable(${PROJECT_NAME} test_main.cc)
 
