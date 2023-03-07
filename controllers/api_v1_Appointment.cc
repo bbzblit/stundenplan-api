@@ -24,3 +24,26 @@ void Appointment::getAppointmentByClassId(const HttpRequestPtr &req, std::functi
         (*callbackPtr)(resp);
     };
 }
+
+void Appointment::getFutureByClassId(const HttpRequestPtr &req, std::function<void(const HttpResponsePtr &)> &&callback, const int classId)
+{
+    static auto dbClient = app().getDbClient();
+    auto callbackPtr = std::make_shared<std::function<void(const HttpResponsePtr &)>>(move(callback));
+
+    *dbClient << "SELECT * FROM appointment"
+                 " WHERE class_id = ?"
+                 " AND appointment_end >= NOW()"
+              << classId >>
+        [callbackPtr](const Result &result)
+    {
+        Json::Value ret;
+        ret.resize(0);
+        for (const auto &row : result)
+        {
+            school_classes::Appointment appointment = school_classes::Appointment(row);
+            ret.append(appointment.toJson());
+        }
+        auto resp = HttpResponse::newHttpJsonResponse(ret);
+        (*callbackPtr)(resp);
+    };
+}
