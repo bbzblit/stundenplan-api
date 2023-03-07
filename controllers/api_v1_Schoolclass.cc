@@ -26,3 +26,30 @@ void Schoolclass::getAllClasses(
         (*callbackPtr)(resp);
     };
 }
+
+void Schoolclass::getClassById(
+    const HttpRequestPtr &req,
+    std::function<void(const HttpResponsePtr &)> &&callback,
+    int id)
+{
+    static auto dbClient = app().getDbClient();
+
+    auto callbackPtr = std::make_shared<std::function<void(const HttpResponsePtr &)>>(move(callback));
+    *dbClient
+            << "SELECT * FROM classes "
+               "WHERE id = ?"
+            << id >>
+        [callbackPtr](const Result &result)
+    {
+        auto resp = HttpResponse::newNotFoundResponse();
+        if (result.size() == 1)
+        {
+            Json::Value ret;
+            ret.resize(0);
+            Classes classes = Classes(result[0]);
+            ret.append(classes.toJson());
+            resp = HttpResponse::newHttpJsonResponse(ret);
+        }
+        (*callbackPtr)(resp);
+    };
+}
