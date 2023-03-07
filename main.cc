@@ -2,6 +2,7 @@
 int main() {
     //Set HTTP listener address and port
     drogon::app().addListener("0.0.0.0",8080);
+    drogon::app().loadConfigFile("../config.json");
     //Load config file
     //drogon::app().loadConfigFile("../config.json");
     //Run HTTP framework,the method will block in the internal event loop
