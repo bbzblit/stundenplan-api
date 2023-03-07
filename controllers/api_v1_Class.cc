@@ -1,9 +1,9 @@
-#include "api_v1_Schoolclass.h"
+#include "api_v1_Class.h"
 
 using namespace api::v1;
 
 // Add definition of your processing function here
-void Schoolclass::getAllClasses(
+void Class::getAllClasses(
     const HttpRequestPtr &req,
     std::function<void(const HttpResponsePtr &)> &&callback)
 {
@@ -11,14 +11,14 @@ void Schoolclass::getAllClasses(
 
     auto callbackPtr = std::make_shared<std::function<void(const HttpResponsePtr &)>>(move(callback));
     *dbClient
-            << "SELECT * FROM classes" >>
+            << "SELECT * FROM class" >>
         [callbackPtr](const Result &result)
     {
         Json::Value ret;
         ret.resize(0);
         for (const auto &row : result)
         {
-            Classes classes = Classes(row);
+            school_classes::Class classes = school_classes::Class(row);
             ret.append(classes.toJson());
         }
         auto resp = HttpResponse::newHttpJsonResponse(ret);
@@ -27,7 +27,7 @@ void Schoolclass::getAllClasses(
     };
 }
 
-void Schoolclass::getClassById(
+void Class::getClassById(
     const HttpRequestPtr &req,
     std::function<void(const HttpResponsePtr &)> &&callback,
     int id)
@@ -36,7 +36,7 @@ void Schoolclass::getClassById(
 
     auto callbackPtr = std::make_shared<std::function<void(const HttpResponsePtr &)>>(move(callback));
     *dbClient
-            << "SELECT * FROM classes "
+            << "SELECT * FROM class "
                "WHERE id = ?"
             << id >>
         [callbackPtr](const Result &result)
@@ -46,7 +46,7 @@ void Schoolclass::getClassById(
         {
             Json::Value ret;
             ret.resize(0);
-            Classes classes = Classes(result[0]);
+            school_classes::Class classes = school_classes::Class(result[0]);
             ret.append(classes.toJson());
             resp = HttpResponse::newHttpJsonResponse(ret);
         }

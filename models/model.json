@@ -7,7 +7,7 @@
   "passwd": "password",
   "tables": [
     "appointment",
-    "classes"
+    "class"
   ],
   "restful_api_controllers": {
     "enabled": false,
