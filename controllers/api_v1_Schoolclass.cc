@@ -11,7 +11,7 @@ void Schoolclass::getAllClasses(
 
     auto callbackPtr = std::make_shared<std::function<void(const HttpResponsePtr &)>>(move(callback));
     *dbClient
-            << "SELECT * FROM classes WHERE id = 3516103" >>
+            << "SELECT * FROM classes" >>
         [callbackPtr](const Result &result)
     {
         Json::Value ret;
