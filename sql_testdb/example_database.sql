@@ -40,7 +40,7 @@ CREATE TABLE `appointment` (
   `class_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `class_id` (`class_id`),
-  CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`)
+  CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3218 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -55,13 +55,13 @@ INSERT INTO `appointment` VALUES (1,'2023-01-24 07:15:00','2023-01-24 09:40:00',
 UNLOCK TABLES;
 
 --
--- Table structure for table `classes`
+-- Table structure for table `class`
 --
 
-DROP TABLE IF EXISTS `classes`;
+DROP TABLE IF EXISTS `class`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `classes` (
+CREATE TABLE `class` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
@@ -69,13 +69,13 @@ CREATE TABLE `classes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `classes`
+-- Dumping data for table `class`
 --
 
-LOCK TABLES `classes` WRITE;
-/*!40000 ALTER TABLE `classes` DISABLE KEYS */;
-INSERT INTO `classes` VALUES (3259168,'Automobil-Mechatroniker/in EFZ AMM 19-23'),(3315361,'Anlagen- und Apparatebauer AAB 19-23 A'),(3390603,'ABU SCH 19-23 A SCH 19-23 B'),(3445984,'Automobil-Fachleute EFZ AMF 20-23 A'),(3446189,'Automobil-Fachleute EFZ AMF 20-23 B'),(3446241,'Automobil-Mechatroniker/in EFZ AMM 20-24 A'),(3493812,'Anlagen- und Apparatebauer AAB 20-24 A'),(3514312,'Automobil-Fachleute EFZ AMF 21-24 A'),(3514319,'Automobil-Fachleute EFZ AMF 21-24 B'),(3514373,'Automobil-Mechatroniker/in EFZ AMM 21-25 A'),(3514811,'Anlagen- und Apparatebauer AAB 21-25 A'),(3515129,'Automobil-Assistent/in EBA AMA 21-23 A'),(3515139,'Automobil-Assistent/in EBA AMA 21-23 B'),(3515587,'ABU LBM SPE 20-24'),(3515597,'ABU COA 21-23 A'),(3515607,'ABU LBM SPE 21-25 A'),(3515820,'ABU MAA 21-23 A'),(3516009,'Anlagen- und Apparatebauer AAB 22-26 A'),(3516070,'Automobil-Assistent/in EBA AMA 22-24 A'),(3516075,'Automobil-Assistent/in EBA AMA 22-24 B'),(3516096,'Automobil-Fachleute EFZ AMF 22-25 A'),(3516103,'Automobil-Fachleute EFZ AMF 22-25 B'),(3516114,'Automobil-Mechatroniker/in EFZ AMM 22-26 A'),(3517173,'ABU SCH 21-25 A und SPE 21-25 A'),(3517223,'ABU MAA MEA 21-23 A'),(3517228,'ABU MAA HPA 22-24 A');
-/*!40000 ALTER TABLE `classes` ENABLE KEYS */;
+LOCK TABLES `class` WRITE;
+/*!40000 ALTER TABLE `class` DISABLE KEYS */;
+INSERT INTO `class` VALUES (3259168,'Automobil-Mechatroniker/in EFZ AMM 19-23'),(3315361,'Anlagen- und Apparatebauer AAB 19-23 A'),(3390603,'ABU SCH 19-23 A SCH 19-23 B'),(3445984,'Automobil-Fachleute EFZ AMF 20-23 A'),(3446189,'Automobil-Fachleute EFZ AMF 20-23 B'),(3446241,'Automobil-Mechatroniker/in EFZ AMM 20-24 A'),(3493812,'Anlagen- und Apparatebauer AAB 20-24 A'),(3514312,'Automobil-Fachleute EFZ AMF 21-24 A'),(3514319,'Automobil-Fachleute EFZ AMF 21-24 B'),(3514373,'Automobil-Mechatroniker/in EFZ AMM 21-25 A'),(3514811,'Anlagen- und Apparatebauer AAB 21-25 A'),(3515129,'Automobil-Assistent/in EBA AMA 21-23 A'),(3515139,'Automobil-Assistent/in EBA AMA 21-23 B'),(3515587,'ABU LBM SPE 20-24'),(3515597,'ABU COA 21-23 A'),(3515607,'ABU LBM SPE 21-25 A'),(3515820,'ABU MAA 21-23 A'),(3516009,'Anlagen- und Apparatebauer AAB 22-26 A'),(3516070,'Automobil-Assistent/in EBA AMA 22-24 A'),(3516075,'Automobil-Assistent/in EBA AMA 22-24 B'),(3516096,'Automobil-Fachleute EFZ AMF 22-25 A'),(3516103,'Automobil-Fachleute EFZ AMF 22-25 B'),(3516114,'Automobil-Mechatroniker/in EFZ AMM 22-26 A'),(3517173,'ABU SCH 21-25 A und SPE 21-25 A'),(3517223,'ABU MAA MEA 21-23 A'),(3517228,'ABU MAA HPA 22-24 A');
+/*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -87,4 +87,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-07  6:58:03
+-- Dump completed on 2023-03-07  9:59:17
