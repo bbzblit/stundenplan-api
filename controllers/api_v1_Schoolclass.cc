@@ -22,7 +22,7 @@ void Schoolclass::getAllClasses(
             ret.append(classes.toJson());
         }
         auto resp = HttpResponse::newHttpJsonResponse(ret);
-        resp->setStatusCode(HttpStatusCode::k201Created);
+        resp->setStatusCode(HttpStatusCode::k200OK);
         (*callbackPtr)(resp);
     };
 }
