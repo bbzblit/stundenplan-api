@@ -17,7 +17,7 @@ namespace api
     public:
       METHOD_LIST_BEGIN
 
-      METHOD_ADD(Class::getClassById, "/id/{1:the_class_id}", Get);
+      METHOD_ADD(Class::getClassById, "/{1:the_class_id}", Get);
 
       METHOD_ADD(Class::getAllClasses, "/", Get);
       METHOD_LIST_END
