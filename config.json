@@ -40,7 +40,7 @@
     "db_clients": [
         {
             "rdbms": "mysql",
-            "host": "127.0.0.1",
+            "host": "8.8.8.8",
             "port": 3306,
             "dbname": "school_classes",
             "user": "root",
