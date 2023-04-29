@@ -40,7 +40,7 @@
     "db_clients": [
         {
             "rdbms": "mysql",
-            "host": "8.8.8.8",
+            "host": "database",
             "port": 3306,
             "dbname": "school_classes",
             "user": "root",
@@ -62,7 +62,8 @@
             "port": 6379,
             //username: '' by default which means 'default' in redis ACL
             "username": "",
-            //passwd: '' by default
+            //passwd: '' by default CrashLoopBackOff (back-off
+10s restarting failed container=database pod=database-6dd8b8d8d8-2ltbk_stundenplan(bfde5b71-b81e-4a8c-b935-07851b592bc0)) | Last state: Terminated with 1: Error, started: Sat, Apr 29 2023 7:48:16 pm, finished: Sat, Apr 29 2023 7:48:16 pm 
             "passwd": "",
             //db index: 0 by default
             "db": 0,
