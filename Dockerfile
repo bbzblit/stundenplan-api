@@ -4,8 +4,6 @@ WORKDIR /app/root
 
 RUN git clone https://github.com/bbzblit/stundenplan-api.git .
 
-COPY ./config.json /app/config.json
-
 RUN apt-get update && apt-get install curl sudo -y \
     && curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash\
     && apt update && apt install -y libjsoncpp24  libjsoncpp-dev  libmariadbclient18  libmariadbclient-dev  mariadb-client libmariadb-dev\
