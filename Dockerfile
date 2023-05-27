@@ -2,6 +2,8 @@ FROM debian:latest
 
 WORKDIR /app/root
 
+ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
+
 RUN apt-get update && apt-get install git -y &&  \
     git clone https://github.com/bbzblit/stundenplan-api.git .
 
