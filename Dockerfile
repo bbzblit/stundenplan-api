@@ -2,7 +2,7 @@ FROM debian:latest
 
 WORKDIR /app/root
 
-COPY . .
+RUN git clone https://github.com/bbzblit/stundenplan-api.git .
 
 COPY ./config.json /app/config.json
 
