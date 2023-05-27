@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install git -y &&  \
 
 RUN apt-get update && apt-get install curl sudo -y \
     && curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash\
-    && apt update && apt install -y libjsoncpp24  libjsoncpp-dev\
+    && apt update && apt install -y libjsoncpp24  libjsoncpp-dev  mariadb-client libmariadb-dev\
     && sudo apt install git gcc g++ cmake libjsoncpp-dev uuid-dev openssl libssl-dev zlib1g-dev -y \
     && cd /tmp \
     && git clone https://github.com/an-tao/drogon \
