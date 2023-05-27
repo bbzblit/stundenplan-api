@@ -2,12 +2,12 @@ FROM debian:latest
 
 WORKDIR /app/root
 
-RUN apt-get update && apt-get install git && 
+RUN apt-get update && apt-get install git -y &&  \
     git clone https://github.com/bbzblit/stundenplan-api.git .
 
 RUN apt-get update && apt-get install curl sudo -y \
     && curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash\
-    && apt update && apt install -y libjsoncpp24  libjsoncpp-dev  libmariadbclient18  libmariadbclient-dev  mariadb-client libmariadb-dev\
+    && apt update && apt install -y libjsoncpp24  libjsoncpp-dev\
     && sudo apt install git gcc g++ cmake libjsoncpp-dev uuid-dev openssl libssl-dev zlib1g-dev -y \
     && cd /tmp \
     && git clone https://github.com/an-tao/drogon \
